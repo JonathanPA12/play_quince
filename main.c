@@ -13,7 +13,7 @@ int main () {
     llenarMatriz(); 
     matriz[3][3] = 0;//el 3 se pone en 0 para que no se imprima
     imprimirMatriz();
-    desordenarMatriz();
+  
     do{
          caracter = getchar(); //se lee un caracter de entrada por teclado
          enter = getchar(); //se lee un enter de entrada por teclado
