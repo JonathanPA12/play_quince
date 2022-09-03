@@ -4,16 +4,19 @@
 
 int matriz[4][4];
 int fila3 = 3, columna3 = 3; //posicion de la matriz en la que se encuentra el 3
+int valor = 19; //valor que se va a intercambiar con el 3
 void imprimirMatriz(); //funcion para imprimir la matriz
 void llenarMatriz(); //funcion para llenar la matriz
 void buscarValor(int); //funcion para buscar el valor en la matriz
+
 
 int main () {
   
     char caracter; //variable para leer un caracter
     char enter; //variable para leer un enter
     llenarMatriz(); 
-    //matriz[3][3] = 0;//el 3 se pone en 0 para que no se imprima
+    buscarValor(valor);
+    matriz[3][3] = 0;//el 3 se pone en 0 para que no se imprima
     imprimirMatriz();
   
     do{
@@ -75,7 +78,7 @@ void imprimirMatriz(){
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 4; j++){
 
-            if(matriz[i][j] != 16){ //si el valor de la matriz es diferente de 0
+            if(matriz[i][j] != 0){ //si el valor de la matriz es diferente de 0
                 printf("[%2i] ", matriz[i][j]);
             }else{
                 printf("[  ] ");
@@ -91,7 +94,7 @@ void llenarMatriz(){
     {
         for (int j = 0; j<4; j++)
         {
-            //matriz[i][j] = 1 + rand() % 16 ;
+           // matriz[i][j] = 1 + rand() % 16 ;
          matriz[i][j] = contador;
          contador++;
         }
@@ -99,11 +102,17 @@ void llenarMatriz(){
     }
 }
 void buscarValor(int valor){
+    int aux;
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 4; j++){
             if(matriz[i][j] == valor){
-                printf("El valor %i se encuentra en la posicion [%i][%i]\n", valor, i, j);
+                aux = matriz[i][j];
+                matriz[i][j] = matriz[fila3][columna3];
+                matriz[fila3][columna3] = aux;
+              
             }
         }
     }
 }
+
+
