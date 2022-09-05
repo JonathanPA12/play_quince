@@ -82,6 +82,12 @@ int main () {
         case 'e':
             printf("Gracias por jugar %s ", jugadores.nombre);
             printf("Movimientos: %d", jugadores.movimientos);
+            //gurardar datos 
+            FILE *archivo;
+            archivo = fopen("datos.txt", "a");
+            fprintf(archivo, "Nombre: %s Movimientos: %d \n", jugadores.nombre, jugadores.movimientos);
+            fclose(archivo);
+
 
             break;
 
